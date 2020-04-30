@@ -9,7 +9,7 @@ const Cards = (props) => {
   return (
     <React.Fragment>
       <div className="row">
-        <div className="col s12 m5 l2 card hoverable red lighten-4 red-text text-darken-4">
+        <div className="col s5 m5 l2 card hoverable red lighten-4 red-text text-darken-4">
           <div className="card-content">
             <h5>Confirmed</h5>
             <span>
@@ -18,7 +18,7 @@ const Cards = (props) => {
             </span>
           </div>
         </div>
-        <div className="col s12 m5 l2 card hoverable blue lighten-4 blue-text text-darken-4">
+        <div className="col s5 m5 l2 card hoverable blue lighten-4 blue-text text-darken-4">
           <div className="card-content">
             <h5>Active</h5>
             <span>
@@ -31,7 +31,7 @@ const Cards = (props) => {
             </span>
           </div>
         </div>
-        <div className="col s12 m5 l2 card hoverable green lighten-4 green-text text-darken-4">
+        <div className="col s5 m5 l2 card hoverable green lighten-4 green-text text-darken-4">
           <div className="card-content">
             <h5>Recovered</h5>
             <span>
@@ -40,7 +40,7 @@ const Cards = (props) => {
             </span>
           </div>
         </div>
-        <div className="col s12 m5 l2 card hoverable grey lighten-4 grey-text text-darken-4">
+        <div className="col s5 m5 l2 card hoverable grey lighten-4 grey-text text-darken-4">
           <div className="card-content">
             <h5>Deaths</h5>
             <span>
