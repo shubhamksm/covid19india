@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Cards from "./Cards/Cards";
-// import MainChart from "./Charts/MainChart";
+import Charts from "./Charts/Charts";
 import fetchCardsData from "./fetchFunctions/fetchCardsData";
 import fetchChartsData from "./fetchFunctions/fetchChartsData";
 
@@ -54,6 +54,7 @@ const App = () => {
   return (
     <div>
       <Cards data={cardsData} />
+      <Charts data={chartsData} />
     </div>
   );
 };
