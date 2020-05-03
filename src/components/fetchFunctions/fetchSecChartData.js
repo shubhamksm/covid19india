@@ -1,4 +1,4 @@
-const fetchMainChartData = (dates, total) => {
+const fetchSecChartData = (dates, active, recovered, deaths) => {
   const mainData = {
     data: {},
     options: {},
@@ -6,16 +6,33 @@ const fetchMainChartData = (dates, total) => {
   if (dates === undefined) {
     return mainData;
   } else {
+    // Main logic --
     mainData.data = {
       labels: dates,
       datasets: [
         {
-          label: "Total Confirmed Cases",
-          data: total,
+          label: "Deaths",
+          data: deaths,
+          backgroundColor: "#607d8b",
+          borderColor: "#607d8b",
+          // borderWidth: 5,
+          // fill: false,
+        },
+        {
+          label: "Recovered",
+          data: recovered,
+          backgroundColor: "#03a9f4",
+          borderColor: "#03a9f4",
+          // borderWidth: 5,
+          // fill: false,
+        },
+        {
+          label: "Active Cases",
+          data: active,
           backgroundColor: "rgba(255, 100, 100, 1)",
           borderColor: "rgba(255, 100, 100, 1)",
           // borderWidth: 5,
-          fill: false,
+          // fill: false,
         },
       ],
     };
@@ -48,6 +65,7 @@ const fetchMainChartData = (dates, total) => {
         ],
         yAxes: [
           {
+            stacked: true,
             gridLines: {
               display: false,
             },
@@ -55,9 +73,8 @@ const fetchMainChartData = (dates, total) => {
         ],
       },
     };
-    console.log(mainData);
     return mainData;
   }
 };
 
-export default fetchMainChartData;
+export default fetchSecChartData;
