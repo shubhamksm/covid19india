@@ -25,6 +25,8 @@ const App = () => {
   const [chartsData, setChartsData] = useState({});
 
   // Main API call for total and statewise data, and update states accordingly
+
+  // eslint-disable-next-line
   const fetchResources = async () => {
     // Latest response needed for cards
     const latestResponse = await axios.get(
@@ -53,6 +55,8 @@ const App = () => {
   };
 
   // Useffect with selected state so that it is called when selected state is changed.
+
+  // eslint-disable-next-line
   useEffect(() => {
     fetchResources();
   }, [selectedState]);

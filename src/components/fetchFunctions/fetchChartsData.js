@@ -17,7 +17,7 @@ const fetchChartsData = (historyData, latestData, selectedState) => {
     "December",
   ];
   if (historyData[0] === undefined) {
-    return null;
+    return {};
   } else {
     // Logic for Total scenario
     if (selectedState === "TT") {
@@ -49,6 +49,7 @@ const fetchChartsData = (historyData, latestData, selectedState) => {
       return chartsData;
     }
   }
+  return {};
 };
 
 export default fetchChartsData;

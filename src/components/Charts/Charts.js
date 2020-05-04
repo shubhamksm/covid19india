@@ -3,35 +3,46 @@ import { Line } from "react-chartjs-2";
 import fetchMainChartData from "../fetchFunctions/fetchMainChartData";
 import fetchSecChartData from "../fetchFunctions/fetchSecChartData";
 
-const Charts = ({ data }) => {
-  const [mainChartData, setMainChartData] = useState({});
-  const [secChartData, setSecChartData] = useState({});
+const Charts = (props) => {
+  const [mainChartData, setMainChartData] = useState({
+    data: {},
+    options: {},
+  });
+  const [secChartData, setSecChartData] = useState({
+    data: {},
+    options: {},
+  });
 
   // Set state which will be used to render Graphs
   const setData = () => {
-    if (data === null) {
+    if (props.data === null) {
       return null;
     }
-    setMainChartData(fetchMainChartData(data.dates, data.total));
+    setMainChartData(fetchMainChartData(props.data.dates, props.data.total));
     setSecChartData(
-      fetchSecChartData(data.dates, data.active, data.recovered, data.deaths)
+      fetchSecChartData(
+        props.data.dates,
+        props.data.active,
+        props.data.recovered,
+        props.data.deaths
+      )
     );
   };
 
   useEffect(() => {
     setData();
-  }, [data]);
+  }, [props.data]);
 
-  if (!data) {
+  if (!props.data) {
     return null;
-  } else {
-    return (
-      <div>
-        <Line data={mainChartData.data} options={mainChartData.options} />
-        <Line data={secChartData.data} options={secChartData.options} />
-      </div>
-    );
   }
+
+  return (
+    <div>
+      <Line data={mainChartData.data} options={mainChartData.options} />
+      <Line data={secChartData.data} options={secChartData.options} />
+    </div>
+  );
 };
 
 export default Charts;

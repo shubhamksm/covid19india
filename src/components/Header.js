@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <Box justifyContent="center" borderBottom={1} className={classes.boxHeader}>
       <Container className={classes.boxContainer}>
-        <Typography variant="h4" align="center" gutterBottom="true">
+        <Typography variant="h4" align="center" gutterBottom>
           COVID19 <Icon className="fa fa-biohazard"></Icon> INDIA
         </Typography>
       </Container>

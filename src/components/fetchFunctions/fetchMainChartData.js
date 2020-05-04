@@ -63,7 +63,6 @@ const fetchMainChartData = (dates, total) => {
         ],
       },
     };
-    console.log(mainData);
     return mainData;
   }
 };
