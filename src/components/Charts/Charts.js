@@ -27,7 +27,6 @@ const Charts = ({ data }) => {
   } else {
     return (
       <div>
-        Chart Component
         <Line data={mainChartData.data} options={mainChartData.options} />
         <Line data={secChartData.data} options={secChartData.options} />
       </div>

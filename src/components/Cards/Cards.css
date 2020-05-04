@@ -1,16 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-
-.row {
-  font-family: "Roboto", sans-serif;
+.icon-container {
+  display: table;
 }
 
-.card {
-  border-radius: 25px;
-  margin: 1em 1em;
-  justify-content: center;
+.update-icon {
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
-}
-
-.card-content {
-  padding: 0px !important;
 }

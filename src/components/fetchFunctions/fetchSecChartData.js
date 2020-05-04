@@ -58,8 +58,10 @@ const fetchSecChartData = (dates, active, recovered, deaths) => {
             ticks: {
               callback: function (dataLabel, index) {
                 // Hide the label of every 2nd dataset. return null to hide the grid line too
-                return index % 5 === 0 ? dataLabel : null;
+                return index % 2 === 0 ? dataLabel : null;
               },
+              maxRotation: 0,
+              minRotation: 0,
             },
           },
         ],
@@ -68,6 +70,12 @@ const fetchSecChartData = (dates, active, recovered, deaths) => {
             stacked: true,
             gridLines: {
               display: false,
+            },
+            ticks: {
+              callback: function (dataLabel, index) {
+                // Hide the label of every 2nd dataset. return null to hide the grid line too
+                return index % 2 === 0 ? dataLabel : null;
+              },
             },
           },
         ],

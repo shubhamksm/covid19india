@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { ThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
 
+import theme from "./ui/Theme";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+
+import Header from "./Header";
 import Cards from "./Cards/Cards";
 import Charts from "./Charts/Charts";
 import fetchCardsData from "./fetchFunctions/fetchCardsData";
@@ -53,8 +59,19 @@ const App = () => {
 
   return (
     <div>
-      <Cards data={cardsData} />
-      <Charts data={chartsData} />
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Container>
+          <Grid container spacing={2}>
+            <Grid item lg={6} md={6} xs={12}>
+              <Cards data={cardsData} />
+            </Grid>
+            <Grid item lg={6} md={6} xs={12}>
+              <Charts data={chartsData} />
+            </Grid>
+          </Grid>
+        </Container>
+      </ThemeProvider>
     </div>
   );
 };
