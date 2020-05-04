@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "./Header";
+import Footer from "./Footer";
 import Cards from "./Cards/Cards";
 import Charts from "./Charts/Charts";
 import fetchCardsData from "./fetchFunctions/fetchCardsData";
@@ -141,6 +142,7 @@ const App = () => {
             </Grid>
           </Grid>
         </Container>
+        <Footer />
       </ThemeProvider>
     </div>
   );

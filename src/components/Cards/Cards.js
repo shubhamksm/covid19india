@@ -1,6 +1,5 @@
 import React from "react";
 import CountUp from "react-countup";
-import styles from "./cardsModule.css";
 
 // UI imports
 import { makeStyles } from "@material-ui/core/styles";

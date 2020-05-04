@@ -1,7 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Box, Typography, Icon } from "@material-ui/core";
+import { Container, Box, Typography, Icon, Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   title: {
