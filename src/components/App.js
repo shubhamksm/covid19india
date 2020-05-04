@@ -105,7 +105,6 @@ const App = () => {
   }, [selectedState]);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setSelectedState(event.target.value);
   };
 
@@ -138,7 +137,7 @@ const App = () => {
               <Cards data={cardsData} />
             </Grid>
             <Grid item lg={6} md={6} xs={12}>
-              <Charts data={chartsData} />
+              <Charts data={chartsData} selectedState={selectedState} />
             </Grid>
           </Grid>
         </Container>

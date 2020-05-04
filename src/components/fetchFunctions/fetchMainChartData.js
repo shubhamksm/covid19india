@@ -40,7 +40,7 @@ const fetchMainChartData = (dates, total) => {
         mode: "index",
       },
       animation: {
-        duration: 4000,
+        duration: 3000,
         easing: "easeInExpo",
       },
       scales: {

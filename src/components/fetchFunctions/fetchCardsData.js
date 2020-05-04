@@ -4,13 +4,10 @@ const fetchCardsData = (initData, selectedState) => {
     return {};
   } else {
     // If selected is Total(India)
-    if (selectedState === "TT") {
-      // console.log(initData, selectedState);
-      const data = initData.statewise.filter((data) => {
-        return data.statecode === "TT";
-      });
-      return data[0];
-    }
+    const data = initData.statewise.filter((data) => {
+      return data.statecode === selectedState;
+    });
+    return data[0];
   }
 };
 
