@@ -89,7 +89,7 @@ const fetchChartsData = (historyData, latestData, selectedState) => {
           i = i + 1;
         }
         chartsData.total.push(temp);
-        chartsData.active.push(temp);
+        // chartsData.active.push(temp);
       });
       tempStateData.recovered.map((data, index, dataArray) => {
         let temp = 0;
@@ -108,6 +108,13 @@ const fetchChartsData = (historyData, latestData, selectedState) => {
           i = i + 1;
         }
         chartsData.deaths.push(temp);
+      });
+      chartsData.total.forEach((data, index, dataArray) => {
+        chartsData.active.push(
+          dataArray[index] -
+            chartsData.recovered[index] -
+            chartsData.deaths[index]
+        );
       });
       chartsData.dates = tempStateData.dates;
       return fetchTodaysData(chartsData, cardsData);

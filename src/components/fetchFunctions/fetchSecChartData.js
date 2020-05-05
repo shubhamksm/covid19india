@@ -1,11 +1,4 @@
-const fetchSecChartData = (
-  dates,
-  selectedState,
-  total,
-  active,
-  recovered,
-  deaths
-) => {
+const fetchSecChartData = (dates, active, recovered, deaths) => {
   const mainData = {
     data: {},
     options: {},
@@ -13,9 +6,6 @@ const fetchSecChartData = (
   if (dates === undefined) {
     return mainData;
   } else {
-    if (selectedState !== "TT") {
-      active = total;
-    }
     // Main logic --
     mainData.data = {
       labels: dates,

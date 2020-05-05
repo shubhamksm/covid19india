@@ -22,8 +22,6 @@ const Charts = (props) => {
     setSecChartData(
       fetchSecChartData(
         props.data.dates,
-        props.selectedState,
-        props.data.total,
         props.data.active,
         props.data.recovered,
         props.data.deaths
