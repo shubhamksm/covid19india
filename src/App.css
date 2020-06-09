@@ -179,3 +179,43 @@ header h1 {
 .charts-between {
   margin: 1rem;
 }
+
+/* Footer Section */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Footer Left Section */
+footer .left-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: initial;
+}
+
+footer .left-info .text_ span p {
+  font-weight: 500 !important;
+}
+
+footer .left-info p {
+  font-size: 14px;
+}
+
+footer .left-info .profile {
+  margin-right: 0.5rem;
+}
+
+/* Footer right Section */
+footer .right-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: initial;
+}
+
+footer .right-info a {
+  text-decoration: none;
+  color: var(--main-dark-color);
+  padding-left: 0.3rem;
+}

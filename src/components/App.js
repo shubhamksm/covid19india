@@ -109,7 +109,8 @@ const App = () => {
         options={stateInfo.stateOptions}
       />
       <Charts data={chartsData} selectedState={selectedState} />
-      {/* <Footer /> */}
+
+      <Footer />
     </div>
   );
 };
