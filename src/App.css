@@ -170,3 +170,12 @@ header h1 {
 .select {
   margin: 1rem 2rem;
 }
+
+.main-chart {
+  position: relative;
+  margin: 1rem;
+}
+
+.charts-between {
+  margin: 1rem;
+}

@@ -22,6 +22,11 @@ const fetchMainChartData = (dates, total) => {
       ],
     };
     mainData.options = {
+      legend: {
+        labels: {
+          fontFamily: "Poppins",
+        },
+      },
       tooltips: {
         mode: "index",
         position: "nearest",
@@ -29,9 +34,9 @@ const fetchMainChartData = (dates, total) => {
         backgroundColor: "#ffcdd2",
         borderColor: "#b71c1c",
         borderWidth: 1,
-        titleFontFamily: "Maven Pro",
+        titleFontFamily: "Poppins",
         titleFontColor: "#b71c1c",
-        bodyFontFamily: "Maven Pro",
+        bodyFontFamily: "Poppins",
         bodyFontColor: "#000000",
         titleFontSize: 16,
         bodyFontSize: 14,
@@ -52,7 +57,7 @@ const fetchMainChartData = (dates, total) => {
             ticks: {
               callback: function (dataLabel, index) {
                 // Hide the label of every 2nd dataset. return null to hide the grid line too
-                return index % 2 === 0 ? dataLabel : null;
+                return index % 3 === 0 ? dataLabel : null;
               },
               maxRotation: 0,
               minRotation: 0,
@@ -67,7 +72,7 @@ const fetchMainChartData = (dates, total) => {
             ticks: {
               callback: function (dataLabel, index) {
                 // Hide the label of every 2nd dataset. return null to hide the grid line too
-                return index % 2 === 0 ? dataLabel : null;
+                return index % 3 === 0 ? dataLabel : null;
               },
             },
           },

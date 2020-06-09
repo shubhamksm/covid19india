@@ -23,6 +23,13 @@ const fetchTodaysData = (chartsData, cardsData) => {
   chartsData.active.push(cardsData.active);
   chartsData.recovered.push(cardsData.recovered);
   chartsData.deaths.push(cardsData.deaths);
+  chartsData.dates = chartsData.dates.slice(chartsData.dates.length - 31);
+  chartsData.total = chartsData.total.slice(chartsData.total.length - 31);
+  chartsData.active = chartsData.active.slice(chartsData.active.length - 31);
+  chartsData.recovered = chartsData.recovered.slice(
+    chartsData.recovered.length - 31
+  );
+  chartsData.deaths = chartsData.deaths.slice(chartsData.deaths.length - 31);
   return chartsData;
 };
 

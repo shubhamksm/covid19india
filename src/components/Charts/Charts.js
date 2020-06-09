@@ -38,8 +38,9 @@ const Charts = (props) => {
   }
 
   return (
-    <div>
+    <div className="main-chart">
       <Line data={mainChartData.data} options={mainChartData.options} />
+      <div className="charts-between"></div>
       <Line data={secChartData.data} options={secChartData.options} />
     </div>
   );
