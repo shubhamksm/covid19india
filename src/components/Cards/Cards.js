@@ -1,44 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
 
-// UI imports
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card, CardContent, Icon, Typography } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  paperBox1: {
-    margin: "2%",
-    backgroundColor: "#ffcdd2",
-    color: "#b71c1c",
-    borderBottom: "10px solid #b71c1c",
-    textAlign: "center !important",
-  },
-  paperBox2: {
-    margin: "2%",
-    backgroundColor: "#bbdefb",
-    color: "#0d47a1",
-    borderBottom: "10px solid #0d47a1",
-    textAlign: "center !important",
-  },
-  paperBox3: {
-    margin: "2%",
-    backgroundColor: "#c8e6c9",
-    color: "#1b5e20",
-    borderBottom: "10px solid #1b5e20",
-    textAlign: "center !important",
-  },
-  paperBox4: {
-    margin: "2%",
-    backgroundColor: "#cfd8dc",
-    color: "#263238",
-    borderBottom: "10px solid #263238",
-    textAlign: "center !important",
-  },
-}));
+import first_graphic from "../../images/first_graphic.svg";
+import second_graphic from "../../images/second_graphic.svg";
 
 const Cards = ({ data }) => {
-  const classes = useStyles();
-
   if (!data) {
     return null;
   }
@@ -65,95 +31,86 @@ const Cards = ({ data }) => {
 
   return (
     <React.Fragment>
-      <Grid container spacing={2} justify="center">
-        <Grid
-          item
-          component={Card}
-          xs={5}
-          lg={5}
-          md={5}
-          className={classes.paperBox1}
-        >
-          <CardContent>
-            {/* <CountUp end={100} /> */}
-            <Typography variant="h5">Confirmed</Typography>
-            <Icon className="fa fa-virus" fontSize="large"></Icon>
-            <Typography variant="h5">
-              <CountUp start={0} end={localData.confirmed} duration={1.5} />
-            </Typography>
-            <Typography variant="body2">
+      <section className="main-section">
+        <div className="info">
+          <div className="main-info">
+            <h4 className="regular">Confirmed</h4>
+            <CountUp
+              className="medium main-count"
+              start={0}
+              end={localData.confirmed}
+              duration={1.5}
+            />
+            <p>
               Today +
               <CountUp
+                className="medium today-count"
                 start={0}
                 end={localData.deltaconfirmed}
                 duration={2.75}
               />
-            </Typography>
-          </CardContent>
-        </Grid>
-        <Grid
-          item
-          component={Card}
-          xs={5}
-          lg={5}
-          md={5}
-          className={classes.paperBox2}
-        >
-          <CardContent>
-            <Typography variant="h5">Active</Typography>
-            <Icon className="fa fa-hospital-user" fontSize="large"></Icon>
-            <Typography variant="h5">
-              <CountUp start={0} end={localData.active} duration={1.5} />
-            </Typography>
-          </CardContent>
-        </Grid>
-      </Grid>
-      <Grid container spacing={2} justify="center">
-        <Grid
-          item
-          component={Card}
-          xs={5}
-          lg={5}
-          md={5}
-          className={classes.paperBox3}
-        >
-          <CardContent>
-            <Typography variant="h5">Recovered</Typography>
-            <Icon className="fa fa-shield-virus" fontSize="large"></Icon>
-            <Typography variant="h5">
-              <CountUp start={0} end={localData.recovered} duration={1.5} />
-            </Typography>
-            <Typography variant="body2">
-              Today +
+            </p>
+          </div>
+          <div className="avg-daily">
+            <p>Avg. Daily cases</p>
+            <h4 className="medium">8475</h4>
+            <span>* Based on last 7 entries</span>
+          </div>
+          <div className="last-3-days">
+            <p>Last 3 Days</p>
+            <p className="medium">+9425 / +9175 / +9856</p>
+          </div>
+        </div>
+        <div className="graphic">
+          <img src={first_graphic} alt="first_graphic" />
+        </div>
+      </section>
+      <section className="sec-section">
+        <div className="graphic">
+          <img src={second_graphic} alt="second_graphic" />
+        </div>
+        <div className="info">
+          <div className="active">
+            <h4 className="regular main">Active</h4>
+            <div className="active-data">
               <CountUp
+                className="medium main main-count"
                 start={0}
-                end={localData.deltarecovered}
-                duration={2.75}
+                end={localData.active}
+                duration={1.5}
               />
-            </Typography>
-          </CardContent>
-        </Grid>
-        <Grid
-          item
-          component={Card}
-          xs={5}
-          lg={5}
-          md={5}
-          className={classes.paperBox4}
-        >
-          <CardContent>
-            <Typography variant="h5">Deaths</Typography>
-            <Icon className="fa fa-skull-crossbones" fontSize="large"></Icon>
-            <Typography variant="h5">
-              <CountUp start={0} end={localData.deaths} duration={1.5} />
-            </Typography>
-            <Typography variant="body2">
-              Today +
-              <CountUp start={0} end={localData.deltadeaths} duration={2.75} />
-            </Typography>
-          </CardContent>
-        </Grid>
-      </Grid>
+              <h3 className="medium">/</h3>
+              <h4 className="medium sec">52.56%</h4>
+            </div>
+          </div>
+          <div className="recovered">
+            <h4 className="regular main">Recovered</h4>
+            <div className="recovered-data">
+              <CountUp
+                className="medium main main-count"
+                start={0}
+                end={localData.recovered}
+                duration={1.5}
+              />
+              <h3 className="medium">/</h3>
+              <h4 className="medium sec">52.44%</h4>
+            </div>
+          </div>
+          <div className="deaths">
+            <h4 className="regular main">Deaths</h4>
+            <div className="deaths-data">
+              <CountUp
+                className="medium main main-count"
+                start={0}
+                end={localData.deaths}
+                duration={1.5}
+              />
+              <h3 className="medium">/</h3>
+              <h4 className="medium sec">3.04%</h4>
+            </div>
+          </div>
+        </div>
+      </section>
     </React.Fragment>
   );
 };

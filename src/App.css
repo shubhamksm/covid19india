@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* Color Pallete */
+  --main-dark-color: #333333;
+  --main-red-color: #ff736b;
+  --main-blue-color: #68e1fd;
+  --main-green-color: #06d6a0;
+  color: var(--main-dark-color);
+  max-width: 480px;
+  margin: auto;
+}
+
+/* Font weights */
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+/* Font Size */
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.main-count {
+  font-size: 28px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.info .avg-daily span {
+  font-size: 10px;
+}
+
+/* Header */
+header {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-dark-color);
+}
+
+header h1 {
+  font-weight: 500;
+  text-shadow: 0 2.5px 5px #aaa;
+}
+
+/* Main Section */
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-section .info {
+  margin-left: 2rem;
+}
+
+.main-section .info .main-info {
+  color: var(--main-red-color);
+  margin-bottom: 1rem;
+}
+
+.main-section .info .avg-daily {
+  margin-bottom: 1rem;
+}
+
+/* Secondary Section */
+.sec-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.sec-section .graphic {
+  max-width: 40%;
+}
+
+.sec-section .info {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  min-width: 40%;
+}
+
+.sec-section .info .active-data,
+.sec-section .info .recovered-data,
+.sec-section .info .deaths-data {
+  display: flex;
+  align-items: baseline;
+  justify-content: start;
+}
+
+.sec-section .info .active-data span,
+.sec-section .info .active-data h3,
+.sec-section .info .active-data h4,
+.sec-section .info .recovered-data span,
+.sec-section .info .recovered-data h3,
+.sec-section .info .recovered-data h4,
+.sec-section .info .deaths-data span,
+.sec-section .info .deaths-data h3,
+.sec-section .info .deaths-data h4 {
+  padding-right: 0.5rem;
+}
+
+/* Typograhy */
+
+/* Main Blue Color */
+.sec-section .info .active .main {
+  color: var(--main-blue-color);
+}
+
+.sec-section .info .active .sec {
+  color: var(--main-red-color);
+}
+
+/* Main Green Color */
+.sec-section .info .recovered .main {
+  color: var(--main-green-color);
+}
+
+.sec-section .info .recovered .sec {
+  color: var(--main-red-color);
+}
+
+/* Main Deaths Color */
+.sec-section .info .deaths .sec {
+  color: var(--main-red-color);
+}
+
+.sec-section .info .active .active-data,
+.sec-section .info .recovered .recovered-data,
+.sec-section .info .deaths .deaths-data {
+  margin-left: 1rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Select */
+.select {
+  margin: 1rem 2rem;
+}

@@ -1,38 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { ThemeProvider } from "@material-ui/core/styles";
 import axios from "axios";
+import Select from "react-select";
 
-import theme from "./ui/Theme";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
+import "../App.css";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import Cards from "./Cards/Cards";
 import Charts from "./Charts/Charts";
 import fetchCardsData from "./fetchFunctions/fetchCardsData";
 import fetchChartsData from "./fetchFunctions/fetchChartsData";
-import {
-  Box,
-  MenuItem,
-  FormControl,
-  Select,
-  InputLabel,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  selectBox: {
-    // textAlign: "center",
-  },
-  form: {
-    paddingBottom: "1rem",
-    marginLeft: "2rem",
-    minWidth: "25%",
-  },
-}));
 
 const App = () => {
-  const classes = useStyles();
   // Latest Response state
   const [latest_Response, setLatestResponse] = useState({});
   // History response state
@@ -43,6 +22,7 @@ const App = () => {
   const [stateInfo, setStateInfo] = useState({
     stateCode: [],
     stateName: [],
+    stateOptions: [],
   });
   // Cards data state
   const [cardsData, setCardsData] = useState({});
@@ -76,13 +56,22 @@ const App = () => {
     // set all states information
     const stCode = [];
     const stName = [];
+    const stOption = [];
     if (latest_Response.statewise !== undefined) {
       latest_Response.statewise.forEach((data) => {
+        stOption.push({
+          value: data.statecode,
+          label: data.state,
+        });
         stCode.push(data.statecode);
         stName.push(data.state);
       });
     }
-    setStateInfo({ stateCode: stCode, stateName: stName });
+    setStateInfo({
+      stateCode: stCode,
+      stateName: stName,
+      stateOptions: stOption,
+    });
   };
 
   // Useffect with selected state so that it is called when selected state is changed.
@@ -105,45 +94,23 @@ const App = () => {
     fetchComponentsData();
   }, [selectedState]);
 
-  const handleChange = (event) => {
-    setSelectedState(event.target.value);
+  const handleChange = (sl) => {
+    console.log(sl);
+    setSelectedState(sl.value);
   };
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Container>
-          <Box className={classes.selectBox}>
-            <FormControl className={classes.form}>
-              <InputLabel id="select-state">Select State</InputLabel>
-              <Select
-                labelId="select-state"
-                id="select-state"
-                value={selectedState}
-                onChange={handleChange}
-              >
-                {stateInfo.stateCode.map((data, index) => {
-                  return (
-                    <MenuItem value={data} key={data}>
-                      {stateInfo.stateName[index]}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-          </Box>
-          <Grid container spacing={2}>
-            <Grid item lg={6} md={6} xs={12}>
-              <Cards data={cardsData} />
-            </Grid>
-            <Grid item lg={6} md={6} xs={12}>
-              <Charts data={chartsData} selectedState={selectedState} />
-            </Grid>
-          </Grid>
-        </Container>
-        <Footer />
-      </ThemeProvider>
+      <Header />
+      <Cards data={cardsData} />
+      <Select
+        className="select"
+        defaultValue={selectedState}
+        onChange={handleChange}
+        options={stateInfo.stateOptions}
+      />
+      <Charts data={chartsData} selectedState={selectedState} />
+      {/* <Footer /> */}
     </div>
   );
 };
