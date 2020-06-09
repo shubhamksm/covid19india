@@ -95,14 +95,13 @@ const App = () => {
   }, [selectedState]);
 
   const handleChange = (sl) => {
-    console.log(sl);
     setSelectedState(sl.value);
   };
 
   return (
     <div>
       <Header />
-      <Cards data={cardsData} />
+      <Cards data={cardsData} counting_data={chartsData} />
       <Select
         className="select"
         defaultValue={selectedState}

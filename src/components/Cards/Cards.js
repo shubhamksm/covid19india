@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
+import fetchDailyCardsData from "../fetchFunctions/fetchDailyCardsData";
 
 import first_graphic from "../../images/first_graphic.svg";
 import second_graphic from "../../images/second_graphic.svg";
 
-const Cards = ({ data }) => {
+const Cards = ({ data, counting_data }) => {
+  const [avg_response, setAverageResponse] = useState({
+    avg_day: 0,
+    three_day: [0, 0, 0],
+  });
+
+  useEffect(() => {
+    setAverageResponse(fetchDailyCardsData(counting_data));
+  }, [data]);
+
   if (!data) {
     return null;
   }
@@ -53,12 +63,21 @@ const Cards = ({ data }) => {
           </div>
           <div className="avg-daily">
             <p>Avg. Daily cases</p>
-            <h4 className="medium">8475</h4>
-            <span>* Based on last 7 entries</span>
+            <div className="avg-daily-count">
+              <h4 className="medium">{avg_response.avg_day}</h4>
+              <span>
+                *Based on
+                <br />
+                last 7 entries
+              </span>
+            </div>
           </div>
           <div className="last-3-days">
-            <p>Last 3 Days</p>
-            <p className="medium">+9425 / +9175 / +9856</p>
+            <p>From Last 3 Days</p>
+            <p className="medium">
+              +{avg_response.three_day[2]} / +{avg_response.three_day[1]} / +
+              {avg_response.three_day[0]}
+            </p>
           </div>
         </div>
         <div className="graphic">
@@ -80,20 +99,25 @@ const Cards = ({ data }) => {
                 duration={1.5}
               />
               <h3 className="medium">/</h3>
-              <h4 className="medium sec">52.56%</h4>
+              <h4 className="medium sec">
+                {((100 / localData.confirmed) * localData.active).toFixed(2)}%
+              </h4>
             </div>
           </div>
           <div className="recovered">
             <h4 className="regular main">Recovered</h4>
             <div className="recovered-data">
               <CountUp
-                className="medium main main-count"
+                className="medium main main-count block"
                 start={0}
                 end={localData.recovered}
                 duration={1.5}
               />
               <h3 className="medium">/</h3>
-              <h4 className="medium sec">52.44%</h4>
+              <h4 className="medium sec">
+                {((100 / localData.confirmed) * localData.recovered).toFixed(2)}
+                %
+              </h4>
             </div>
           </div>
           <div className="deaths">
@@ -106,7 +130,9 @@ const Cards = ({ data }) => {
                 duration={1.5}
               />
               <h3 className="medium">/</h3>
-              <h4 className="medium sec">3.04%</h4>
+              <h4 className="medium sec">
+                {((100 / localData.confirmed) * localData.deaths).toFixed(2)}%
+              </h4>
             </div>
           </div>
         </div>

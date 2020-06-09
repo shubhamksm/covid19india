@@ -11,6 +11,7 @@ body {
   /* Color Pallete */
   --main-dark-color: #333333;
   --main-red-color: #ff736b;
+  --main-orange-color: #ff9f1c;
   --main-blue-color: #68e1fd;
   --main-green-color: #06d6a0;
   color: var(--main-dark-color);
@@ -81,6 +82,17 @@ header h1 {
 
 .main-section .info .avg-daily {
   margin-bottom: 1rem;
+  color: var(--main-orange-color);
+}
+
+.main-section .info .avg-daily .avg-daily-count {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.main-section .info .avg-daily .avg-daily-count span {
+  margin-left: 1rem;
 }
 
 /* Secondary Section */
